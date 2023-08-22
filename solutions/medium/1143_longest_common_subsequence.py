@@ -5,16 +5,10 @@ class Solution:
         for i in range(len(text1)):
             for j in range(len(text2)):
                 if text1[i] == text2[j]:
-                    dp[i][j] = 1
-
-        for i in range(len(text1)):
-            for j in range(len(text2)):
-                if text1[i] == text2[j]:
                     if 0 < i and 0 < j:
                         dp[i][j] = dp[i-1][j-1] + 1
                     else:
                         dp[i][j] = 1
-                    res = max(res, dp[i][j])
                 else:
                     top = dp[i-1][j] if i > 0 else 0
                     left = dp[i][j-1] if j > 0 else 0
@@ -38,4 +32,8 @@ if __name__ == '__main__':
 
     text1 = "bsbininm"
     text2 = "jmjkbkjkv"
+    print(Solution().longestCommonSubsequence(text1, text2))
+
+    text1 = "reaad"
+    text2 = "eat"
     print(Solution().longestCommonSubsequence(text1, text2))
